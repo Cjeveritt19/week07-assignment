@@ -18,9 +18,23 @@ app.get("/", (req, res) => {
 
 app.get("/post", async (req, res) => {
   try {
-    const results = await db.query("SELECT * FROM posts;");
-    res.json(results.rows);
-    console.log(results.rows);
+    const data = await db.query("select * from post;");
+    res.json(data.rows);
+    console.log(data.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.post("/add-post", async (req, res) => {
+  try {
+    const postData = req.body;
+    const data = await db.query(
+      `insert into post (username, content, age) values ($1,$2,$3);`,
+      [postData.username, postData.content, postData.age]
+    );
+    res.status(200).json({ success: true });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Internal server error" });
