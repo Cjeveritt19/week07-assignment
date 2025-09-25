@@ -9,7 +9,11 @@
 export default function Home() {
   return (
     <>
-      <main>Home Page</main>
+      <main>Welcome to the Liverpool FC community webpage</main>
+      <p>
+        On this page you can see recent news regarding Liverpool Fc. You can
+        also check the upcoming matches.{" "}
+      </p>
     </>
   );
 }
