@@ -6,3 +6,10 @@
 // - poll your database to keep your data updated --> this is an effect
 // - render the list of content
 //- Stretch: you could conditionally render some elements in your page
+export default function Home() {
+  return (
+    <>
+      <main>Home Page</main>
+    </>
+  );
+}

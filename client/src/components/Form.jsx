@@ -13,3 +13,10 @@
 // - set up an accessible, validated form
 // - remember to track the changes!
 // - be consistent with your names!
+export default function Form() {
+  return (
+    <>
+      <form></form>
+    </>
+  );
+}

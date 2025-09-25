@@ -1,13 +1,21 @@
-import Content from "./components/Content.jsx";
+import Home from "./components/Home.jsx";
 import Form from "./components/Form.jsx";
-
+import NavBar from "./components/NavBar.jsx";
+import Injuries from "./components/Injuries.jsx";
+import { Routes, Route } from "react-router";
 // TODO: We set up routes in here. (Routes, Route)
 //- All our components will be rendered in here
 
 export default function App() {
   return (
     <>
-      <h1>Hello World!</h1>;
+      <h1>Liverpool FC</h1>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Injuries" element={<Injuries />} />
+        <Route path="/Posts" element={<Form />} />
+      </Routes>
     </>
   );
 }
