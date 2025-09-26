@@ -14,7 +14,7 @@ import "./Form.css";
 // - set up an accessible, validated form
 // - remember to track the changes!
 // - be consistent with your names!
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -23,8 +23,24 @@ export default function Form() {
     age: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/post");
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -91,6 +107,22 @@ export default function Form() {
         </div>
         <button type="submit">Submit</button>
       </form>
+
+      <div>
+        <h2>Recent Posts</h2>
+        {posts.length === 0 ? (
+          <p>No posts available.</p>
+        ) : (
+          <ul>
+            {posts.map((post, index) => (
+              <li key={index}>
+                <strong>{post.username}</strong> (Age: {post.age}):{" "}
+                {post.content}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </>
   );
 }

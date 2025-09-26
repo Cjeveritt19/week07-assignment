@@ -8,10 +8,6 @@ const PORT = 8080;
 app.use(cors());
 app.use(express.json());
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
-
 app.get("/", (req, res) => {
   res.json("Hello World!");
 });
@@ -20,7 +16,7 @@ app.get("/post", async (req, res) => {
   try {
     const data = await db.query("select * from post;");
     res.json(data.rows);
-    console.log(data.rows);
+    console.count("getting posts");
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Internal server error" });
@@ -39,4 +35,8 @@ app.post("/add-post", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Internal server error" });
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
