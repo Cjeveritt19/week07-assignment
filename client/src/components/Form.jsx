@@ -111,7 +111,7 @@ export default function Form() {
         <button type="submit">Submit</button>
       </form>
 
-      <div>
+      <div className="Comments">
         <h2>Recent Posts</h2>
         {posts.length === 0 ? (
           <p>No posts available.</p>
