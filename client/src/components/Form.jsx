@@ -1,3 +1,4 @@
+import "./Form.css";
 //TODO: set up a form, collect the users' data, send the data to the server
 // - to store form values in state
 // - submit event --> handler and listener
@@ -16,6 +17,7 @@
 export default function Form() {
   return (
     <>
+      <h1 className="Posts">Posts from the community</h1>
       <form></form>
     </>
   );

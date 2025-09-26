@@ -6,8 +6,8 @@ export default function NavBar() {
       <Link to="/" style={{ marginRight: "10px" }}>
         Home
       </Link>
-      <Link to="/Injuries" style={{ marginRight: "10px" }}>
-        Injuries List
+      <Link to="/League" style={{ marginRight: "10px" }}>
+        League Table
       </Link>
       <Link to="/Posts" style={{ marginRight: "10px" }}>
         Posts
