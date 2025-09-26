@@ -37,6 +37,9 @@ export default function Form() {
     };
 
     fetchPosts();
+
+    const postsInterval = setInterval(fetchPosts, 5000);
+    return () => clearInterval(postsInterval);
   }, []);
 
   const handleChange = (event) => {

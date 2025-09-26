@@ -18,7 +18,7 @@ app.get("/post", async (req, res) => {
     res.json(data.rows);
     console.count("getting posts");
   } catch (err) {
-    console.error(err);
+    console.error(err.stack);
     res.status(500).json({ error: "Internal server error" });
   }
 });
