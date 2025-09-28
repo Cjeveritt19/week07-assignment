@@ -15,6 +15,7 @@ export default function Home() {
         <div className="Content">
           <div className="News">
             <h2>Recent news:</h2>
+            <a href="https://www.liverpoolfc.com/news">The Liverpool News</a>
           </div>
           <div className="Injuries">
             <h2>Injuries and Suspensions:</h2>
