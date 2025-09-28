@@ -1,3 +1,7 @@
+This Full Stack Application is about Liverpool Fc. It is a community webpage where anyone can post see the injury lists and see the recent news. 
+
+
+-------------------
 #Reflection
 
 #Requirements
