@@ -28,7 +28,9 @@ export default function Form() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:8080/post");
+        const response = await fetch(
+          "https://week07-assignment-8kk5.onrender.com/post"
+        );
         const data = await response.json();
         setPosts(data);
       } catch (error) {
@@ -53,13 +55,16 @@ export default function Form() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/add-post", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://week07-assignment-8kk5.onrender.com/add-post",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (response.ok) {
         console.log("Post submitted successfully");
         setFormData({ username: "", content: "", age: "" });
